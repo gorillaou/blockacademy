@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Academy — Minecraft PVP & Skygen Tutorials</title>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/minecraft-3" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">◆</span>
+        <span class="logo-text">Block Academy</span>
+      </a>
+      <nav class="nav">
+        <a href="#pvp">PVP</a>
+        <a href="#skygens">Skygens</a>
+        <a href="#about">About</a>
+        <div class="nav-auth" id="navAuth">
+          <span class="user-name" id="userName"></span>
+          <button type="button" class="btn btn-ghost" id="logoutBtn">Log out</button>
+        </div>
+        <button type="button" class="btn btn-ghost" id="loginBtn">Log in</button>
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <h1>Level up your <span class="highlight">Minecraft</span> game</h1>
+        <p>Pro PVP guides and skygen builds. Learn from the best, dominate the server.</p>
+      </div>
+    </section>
+
+    <section class="section" id="pvp">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-icon">⚔</span>
+          PVP Tutorials
+        </h2>
+        <p class="section-desc">Master combat, movement, and game sense.</p>
+        <div class="product-grid" id="pvpGrid">
+          <!-- Filled by JS or static below -->
+          <article class="product-card" data-id="pvp-1" data-name="PVP Basics Masterclass" data-price="14.99">
+            <div class="product-badge">Bestseller</div>
+            <div class="product-image">
+              <img src="images/pvp-thumb.png" alt="PVP Basics Masterclass" onerror="this.src='https://placehold.co/600x400/1e3a2f/4ade80?text=PVP+Basics'">
+            </div>
+            <div class="product-body">
+              <h3>PVP Basics Masterclass</h3>
+              <p>Click timing, strafing, W-tapping, and blockhitting. Everything you need for 1.8 & 1.9+.</p>
+              <div class="product-footer">
+                <button class="btn btn-primary add-to-cart">Add to cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="skygens">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-icon">☁</span>
+          Skygen Tutorials
+        </h2>
+        <p class="section-desc">Build sky bases and farms that actually work.</p>
+        <div class="product-grid" id="skygensGrid">
+          <article class="product-card" data-id="sky-1" data-name="Skygen Tutorial" data-price="0">
+            <div class="product-image">
+              <img src="images/skygen-thumb.png" alt="Skygen Tutorial" onerror="this.src='https://placehold.co/600x400/1a2d3d/94a3b8?text=Skygen+Tutorial'">
+            </div>
+            <div class="product-body">
+              <h3>Skygen Tutorial</h3>
+              <p>Build sky bases and farms that actually work. Sky island layout, cobble gen, and more.</p>
+              <div class="product-footer">
+                <button class="btn btn-primary add-to-cart">Add to cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-inner">
+        <h2 class="section-title">About Block Academy</h2>
+        <p>We make clear, step-by-step Minecraft tutorials so you can stop grinding blindly and start winning. All guides include video walkthroughs and optional world downloads.</p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your cart</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Filled by JS -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span id="cartTotal">Ask For Tutorial</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Place order</button>
+    </div>
+  </aside>
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+
+  <div class="auth-overlay" id="authOverlay" aria-hidden="true"></div>
+  <div class="auth-modal" id="authModal" role="dialog" aria-labelledby="authModalTitle" aria-hidden="true">
+    <div class="auth-modal-inner">
+      <div class="auth-header">
+        <h2 id="authModalTitle">Log in</h2>
+        <button type="button" class="auth-close" id="authClose" aria-label="Close">×</button>
+      </div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" data-tab="login">Log in</button>
+        <button type="button" class="auth-tab" data-tab="signup">Sign up</button>
+      </div>
+      <p class="auth-message" id="authMessage" role="alert"></p>
+      <form id="loginForm" class="auth-form">
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" name="username" required autocomplete="username">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" required autocomplete="current-password">
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+      </form>
+      <form id="signupForm" class="auth-form" hidden>
+        <label for="signupUsername">Username</label>
+        <input type="text" id="signupUsername" name="username" required autocomplete="username">
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" name="password" required autocomplete="new-password" minlength="4">
+        <label for="signupPassword2">Confirm password</label>
+        <input type="password" id="signupPassword2" name="password2" required autocomplete="new-password">
+        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Block Academy — Minecraft tutorials. Not affiliated with Mojang.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
